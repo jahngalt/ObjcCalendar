@@ -12,13 +12,10 @@ class CalendarController {
 
     init() {
         // Mock a few events for the day
-        self.events = [
-            Event(title: "Late snack", timespan: NSRange(location: 3600, length: 1800), color: .red),
-            Event(title: "Breakfast with Nancy", timespan: NSRange(location: 23400, length: 3600), color: .blue),
-            Event(title: "Shopping for a much-needed new pair of shoes", timespan: NSRange(location: 32400, length: 10800), color: .red),
-            Event(title: "Meeting!", timespan: NSRange(location: 52200, length: 7200), color: .orange),
-            Event(title: "Beer with Matt", timespan: NSRange(location: 75600, length: 10800), color: .blue)
-        ]
+            self.events = [
+                Event(title: "Сходить в магазин", startTime: 1705496400, endTime: 1705503600, description: "купить продукты", color: .blue),
+               
+            ]
     }
 
     var numberOfEvents: Int {

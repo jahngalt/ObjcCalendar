@@ -11,7 +11,7 @@ protocol ViewControllerCalendarDelegate: AnyObject {
     func didSelectDate(_ date: Date)
 }
 
-class ViewControllerCalendar: UIViewController,  CalendarViewLayoutDelegate {
+class ViewControllerCalendar: UIViewController {
     
     
     func calendarViewLayout(_ layout: CalendarViewLayout, timespanForCellAt indexPath: IndexPath) -> NSRange {

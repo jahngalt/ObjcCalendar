@@ -1,6 +1,8 @@
 import UIKit
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CalendarViewLayoutDelegate {
+    
+    
     var calendarController: CalendarController!
     var collectionView: UICollectionView!
 
@@ -24,7 +26,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
         self.collectionView.register(EventViewCell.self, forCellWithReuseIdentifier: "event")
         self.collectionView.register(HourReusableView.self, forSupplementaryViewOfKind: "hour", withReuseIdentifier: "hour")
-        //view.backgroundColor = .yellow
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -39,11 +41,26 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "hour", for: indexPath) as! HourReusableView
-        view.setTime(time: "\(indexPath.item)H")
+        view.setTime(time: "\(indexPath.item):00")
+        print(indexPath.item)
         return view
     }
-
-    func calendarViewLayout(_ layout: CalendarViewLayout, timespanForCellAt indexPath: IndexPath) -> NSRange {
-        return self.calendarController.eventAtIndex(index: indexPath.item).timespan
+    
+    
+    func calendarViewLayout(_ layout: CalendarViewLayout, startTimeForCellAt indexPath: IndexPath) -> TimeInterval {
+        // Ваша логика для расчета startTime в минутах
+        let minutesPerCell: TimeInterval = 60 // Количество минут в каждой ячейке
+        let startTimeInMinutes = minutesPerCell * TimeInterval(indexPath.item)
+        return startTimeInMinutes
     }
+
+    func calendarViewLayout(_ layout: CalendarViewLayout, endTimeForCellAt indexPath: IndexPath) -> TimeInterval {
+        // Ваша логика для расчета endTime в минутах
+        let minutesPerCell: TimeInterval = 60 // Количество минут в каждой ячейке
+        let endTimeInMinutes = minutesPerCell * TimeInterval(indexPath.item + 1) // endTime следующей ячейки
+        return endTimeInMinutes
+    }
+
+
+   
 }

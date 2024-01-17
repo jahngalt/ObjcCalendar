@@ -40,7 +40,7 @@ class HourReusableView: UICollectionReusableView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        timeLabel.frame = CGRect(x: 2, y: 0, width: 24, height: bounds.size.height)
+        timeLabel.frame = CGRect(x: 2, y: 0, width: 30, height: bounds.size.height)
         let timeLineFrame = CGRect(x: timeLabel.frame.maxX + 5, y: HourReusableViewTimeLineTopPadding, width: bounds.size.width - timeLabel.frame.maxX - 10, height: 0.5)
         timeLineView.frame = timeLineFrame
     }

@@ -15,8 +15,10 @@ let CalendarViewLayoutTimeLinePadding: CGFloat = 6.0
 
 //протокол делегата
 protocol CalendarViewLayoutDelegate: AnyObject {
-    func calendarViewLayout(_ layout: CalendarViewLayout, timespanForCellAt indexPath: IndexPath) -> NSRange
+    func calendarViewLayout(_ layout: CalendarViewLayout, startTimeForCellAt indexPath: IndexPath) -> TimeInterval
+    func calendarViewLayout(_ layout: CalendarViewLayout, endTimeForCellAt indexPath: IndexPath) -> TimeInterval
 }
+
 
 
 class CalendarViewLayout: UICollectionViewLayout {
@@ -42,12 +44,15 @@ class CalendarViewLayout: UICollectionViewLayout {
         for i in 0..<collectionView.numberOfSections {
             for j in 0..<collectionView.numberOfItems(inSection: i) {
                 let cellIndexPath = IndexPath(item: j, section: i)
-                let timespan = calendarViewLayoutDelegate.calendarViewLayout(self, timespanForCellAt: cellIndexPath)
-                print(timespan)
-                let posY = CGFloat(timespan.location) / 60.0 + CalendarViewLayoutTimeLinePadding
-                print(posY)
-                let height = CGFloat(timespan.length) / 60.0
-                print(height)
+//                let timespan = calendarViewLayoutDelegate.calendarViewLayout(self, timespanForCellAt: cellIndexPath)
+                let startTime = calendarViewLayoutDelegate.calendarViewLayout(self, startTimeForCellAt: cellIndexPath)
+                let endTime = calendarViewLayoutDelegate.calendarViewLayout(self, endTimeForCellAt: cellIndexPath)
+                print("start time: ", startTime)
+                print("end time: ", endTime)
+                let posY = CGFloat(startTime) / 60.0  + CalendarViewLayoutTimeLinePadding
+                print("PosY: ", posY)
+                let height = CGFloat(endTime) / 60.0
+                print("Height: ", height)
 
                 let attributes = UICollectionViewLayoutAttributes(forCellWith: cellIndexPath)
                 attributes.frame = CGRect(x: CalendarViewLayoutLeftPadding, y: posY, width: collectionView.bounds.size.width - CalendarViewLayoutLeftPadding - CalendarViewLayoutRightPadding, height: height)
