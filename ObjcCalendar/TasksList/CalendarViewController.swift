@@ -46,20 +46,23 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return view
     }
     
-    
     func calendarViewLayout(_ layout: CalendarViewLayout, startTimeForCellAt indexPath: IndexPath) -> TimeInterval {
-        // Ваша логика для расчета startTime в секундах
-        let secondsPerCell: TimeInterval = 3600 // Количество секунд в каждой ячейке (1 час = 3600 секунд)
-        let startTimeInSeconds = secondsPerCell * TimeInterval(indexPath.item)
+        let event = self.calendarController.eventAtIndex(index: indexPath.item)
+        let startTimeTimestamp = event.startTime // Timestamp начала события (в секундах)
+        let startOfDay = Calendar.current.startOfDay(for: Date()) // Начало текущего дня
+        let startTimeInSeconds = startTimeTimestamp - startOfDay.timeIntervalSince1970 // Разница с началом дня
         return startTimeInSeconds
     }
 
     func calendarViewLayout(_ layout: CalendarViewLayout, endTimeForCellAt indexPath: IndexPath) -> TimeInterval {
-        // Ваша логика для расчета endTime в секундах
-        let secondsPerCell: TimeInterval = 3600 // Количество секунд в каждой ячейке (1 час = 3600 секунд)
-        let endTimeInSeconds = secondsPerCell * TimeInterval(indexPath.item + 1) // endTime следующей ячейки
+        let event = self.calendarController.eventAtIndex(index: indexPath.item)
+        let endTimeTimestamp = event.endTime // Timestamp окончания события (в секундах)
+        let startOfDay = Calendar.current.startOfDay(for: Date()) // Начало текущего дня
+        let endTimeInSeconds = endTimeTimestamp - startOfDay.timeIntervalSince1970 // Разница с началом дня
         return endTimeInSeconds
     }
+
+
 
 
 
