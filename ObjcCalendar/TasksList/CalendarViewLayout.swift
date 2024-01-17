@@ -8,7 +8,7 @@
 import UIKit
 
 let CalendarViewLayoutHourViewHeight: CGFloat = 60.0
-let CalendarViewLayoutLeftPadding: CGFloat = 30.0
+let CalendarViewLayoutLeftPadding: CGFloat = 40.0
 let CalendarViewLayoutRightPadding: CGFloat = 10.0
 let CalendarViewLayoutTimeLinePadding: CGFloat = 6.0
 
@@ -49,9 +49,9 @@ class CalendarViewLayout: UICollectionViewLayout {
                 let endTime = calendarViewLayoutDelegate.calendarViewLayout(self, endTimeForCellAt: cellIndexPath)
                 print("start time: ", startTime)
                 print("end time: ", endTime)
-                let posY = CGFloat(startTime) / 60.0  + CalendarViewLayoutTimeLinePadding
+                let posY = CGFloat(startTime) / 60.0  + CalendarViewLayoutTimeLinePadding + 24
                 print("PosY: ", posY)
-                let height = CGFloat(endTime) / 60.0
+                let height = CGFloat(endTime - startTime) / 60.0
                 print("Height: ", height)
 
                 let attributes = UICollectionViewLayoutAttributes(forCellWith: cellIndexPath)

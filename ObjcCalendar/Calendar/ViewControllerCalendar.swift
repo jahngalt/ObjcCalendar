@@ -13,6 +13,7 @@ protocol ViewControllerCalendarDelegate: AnyObject {
 
 class ViewControllerCalendar: UIViewController {
     
+    var calendarController: CalendarController!
     
     func calendarViewLayout(_ layout: CalendarViewLayout, timespanForCellAt indexPath: IndexPath) -> NSRange {
         return NSRange(location: indexPath.item * 60, length: 60)
@@ -46,8 +47,10 @@ class ViewControllerCalendar: UIViewController {
         setCellsView()
         setMonthView()
         
-//        view.backgroundColor = .blue
-//        collectionView.backgroundColor = .red
+       view.backgroundColor = .red
+        collectionView.backgroundColor = .red
+        
+       
         
     }
     
@@ -102,6 +105,7 @@ class ViewControllerCalendar: UIViewController {
     @IBAction func nextMonth(_ sender: Any) {
         selectedDate = CalendarHelper().plusMonth(date: selectedDate)
         setMonthView()
+        print("Count: ", totalSquares.count)
         
     }
     

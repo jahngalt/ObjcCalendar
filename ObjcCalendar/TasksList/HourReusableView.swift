@@ -14,7 +14,7 @@ class HourReusableView: UICollectionReusableView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10)
         label.textColor = .black
-        label.textAlignment = .right
+        label.textAlignment = .left
         return label
     }()
 
@@ -40,10 +40,23 @@ class HourReusableView: UICollectionReusableView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        timeLabel.frame = CGRect(x: 2, y: 0, width: 30, height: bounds.size.height)
-        let timeLineFrame = CGRect(x: timeLabel.frame.maxX + 5, y: HourReusableViewTimeLineTopPadding, width: bounds.size.width - timeLabel.frame.maxX - 10, height: 0.5)
-        timeLineView.frame = timeLineFrame
+        
+        let timeLabelWidth: CGFloat = 30
+        let timeLabelX: CGFloat = 2
+        
+        // Рассчитайте ширину и положение для timeLineView так, чтобы он был на одном уровне с timeLabel.
+        let timeLineX = timeLabelX + timeLabelWidth + 5
+        print("timeLineX: ", timeLineX)
+        let timeLineY = bounds.size.height / 2 - 0.25 // Выровняйте по центру ячейки по вертикали
+        let timeLineWidth = bounds.size.width - timeLineX - 10
+        let timeLineHeight: CGFloat = 0.5
+        
+        timeLabel.frame = CGRect(x: timeLabelX, y: 0, width: timeLabelWidth, height: bounds.size.height)
+        timeLineView.frame = CGRect(x: timeLineX, y: timeLineY, width: timeLineWidth, height: timeLineHeight)
+        timeLineView.backgroundColor = .purple
     }
+
+
 
     func setTime(time: String) {
         timeLabel.text = time

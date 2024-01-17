@@ -14,6 +14,7 @@ class EventViewCell: UICollectionViewCell {
             self.layer.borderColor = event.color.cgColor
             self.backgroundColor = event.color.withAlphaComponent(0.2)
             self.label.text = event.title
+            self.leftBorderView.backgroundColor = event.color
             self.label.textColor = event.color
             self.setNeedsLayout()
         }
@@ -21,6 +22,7 @@ class EventViewCell: UICollectionViewCell {
 
     private let leftBorderView: UIView = {
         let view = UIView()
+        
         return view
     }()
 
