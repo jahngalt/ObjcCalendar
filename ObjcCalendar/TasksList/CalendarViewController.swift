@@ -48,18 +48,19 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     
     func calendarViewLayout(_ layout: CalendarViewLayout, startTimeForCellAt indexPath: IndexPath) -> TimeInterval {
-        // Ваша логика для расчета startTime в минутах
-        let minutesPerCell: TimeInterval = 60 // Количество минут в каждой ячейке
-        let startTimeInMinutes = minutesPerCell * TimeInterval(indexPath.item)
-        return startTimeInMinutes
+        // Ваша логика для расчета startTime в секундах
+        let secondsPerCell: TimeInterval = 3600 // Количество секунд в каждой ячейке (1 час = 3600 секунд)
+        let startTimeInSeconds = secondsPerCell * TimeInterval(indexPath.item)
+        return startTimeInSeconds
     }
 
     func calendarViewLayout(_ layout: CalendarViewLayout, endTimeForCellAt indexPath: IndexPath) -> TimeInterval {
-        // Ваша логика для расчета endTime в минутах
-        let minutesPerCell: TimeInterval = 60 // Количество минут в каждой ячейке
-        let endTimeInMinutes = minutesPerCell * TimeInterval(indexPath.item + 1) // endTime следующей ячейки
-        return endTimeInMinutes
+        // Ваша логика для расчета endTime в секундах
+        let secondsPerCell: TimeInterval = 3600 // Количество секунд в каждой ячейке (1 час = 3600 секунд)
+        let endTimeInSeconds = secondsPerCell * TimeInterval(indexPath.item + 1) // endTime следующей ячейки
+        return endTimeInSeconds
     }
+
 
 
    
