@@ -8,8 +8,9 @@
 import UIKit
 
 class CalendarController {
+    
     private var events: [Event] = []
-
+    private var filteredTasks: [TaskModel] = []
     init() {
         // Mock a few events for the day
             self.events = [
@@ -27,4 +28,14 @@ class CalendarController {
     func eventAtIndex(index: Int) -> Event {
         return self.events[index]
     }
+    
+    func clearEvents() {
+            events.removeAll()
+        }
+    
+    func addEvent(_ event: Event) {
+            events.append(event)
+        }
+    
+    
 }

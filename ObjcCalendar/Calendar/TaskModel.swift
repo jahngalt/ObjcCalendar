@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct TaskModel {
-    var title: String
-    var startTime: Int
-    var endTime: Int
+struct TaskModel: Codable {
+    let id: Int
+    let date_start: TimeInterval
+    let date_finish: TimeInterval
+    let name: String
+    let description: String
 }

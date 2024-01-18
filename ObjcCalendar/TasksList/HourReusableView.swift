@@ -46,7 +46,7 @@ class HourReusableView: UICollectionReusableView {
         
         // Рассчитайте ширину и положение для timeLineView так, чтобы он был на одном уровне с timeLabel.
         let timeLineX = timeLabelX + timeLabelWidth + 5
-        print("timeLineX: ", timeLineX)
+        
         let timeLineY = bounds.size.height / 2 - 0.25 // Выровняйте по центру ячейки по вертикали
         let timeLineWidth = bounds.size.width - timeLineX - 10
         let timeLineHeight: CGFloat = 0.5

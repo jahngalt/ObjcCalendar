@@ -7,9 +7,7 @@
 
 import UIKit
 
-protocol ViewControllerCalendarDelegate: AnyObject {
-    func didSelectDate(_ date: Date)
-}
+
 
 class ViewControllerCalendar: UIViewController {
     
@@ -20,9 +18,12 @@ class ViewControllerCalendar: UIViewController {
     }
     
     
-    var tasks: [TaskModel] = []
+    var tasks: [TaskModel] = TaskManager().getTasks()
+    
+    var filteredTasks: [TaskModel] = []
+    
     var selectedIndexPath: IndexPath?
-    weak var delegate: ViewControllerCalendarDelegate?
+    
     var selectedDay: Int = 0
     var firstDayIndex: Int?
     
@@ -36,20 +37,22 @@ class ViewControllerCalendar: UIViewController {
     var totalSquares = [String]()
     let calendarLayout = CalendarViewLayout()
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
-
+        calendarController = CalendarController()
         setCellsView()
         setMonthView()
         
-       view.backgroundColor = .red
-        collectionView.backgroundColor = .red
+//       view.backgroundColor = .red
+//        collectionView.backgroundColor = .red
         
+        calendarView.tasks = tasks
+        print("tasks: ", tasks)
+        print("filtered tasks: ", filteredTasks)
        
         
     }
@@ -105,12 +108,19 @@ class ViewControllerCalendar: UIViewController {
     @IBAction func nextMonth(_ sender: Any) {
         selectedDate = CalendarHelper().plusMonth(date: selectedDate)
         setMonthView()
-        print("Count: ", totalSquares.count)
+        //print("Count: ", totalSquares.count)
         
     }
     
     override var shouldAutorotate: Bool {
         return false
+    }
+    
+    func loadTasksFromJSON() {
+        TaskManager.shared.loadTaskFromJSON()
+        tasks = TaskManager.shared.getTasks()
+        //print(tasks)
+        collectionView.reloadData()
     }
 }
 
@@ -167,12 +177,23 @@ extension ViewControllerCalendar: UICollectionViewDataSource, UICollectionViewDe
                     return
                 }
         
-        print(selectedDate)
+        //print(selectedDate)
         selectedIndexPath = indexPath
-        print(getDateFromSelectedCell(at: indexPath))
+        //print(getDateFromSelectedCell(at: indexPath))
 //        delegate?.didSelectDate(day)
-        collectionView.reloadData()
         
+        tasks = TaskManager.shared.filterTasks(forDate: selectedDate)
+        // Получите выбранную дату
+            let selectedDate = getDateFromSelectedCell(at: indexPath)
+
+            // Вызовите updateTasks в CalendarViewController, передав выбранную дату
+            calendarView.updateTasks(forDate: selectedDate!)
+
+            // Пометьте выбранный IndexPath (если это нужно)
+            selectedIndexPath = indexPath
+
+        updateCalendarController()
+        collectionView.reloadData()
     }
     
     func getDateFromSelectedCell(at indexPath: IndexPath) -> Date? {
@@ -195,6 +216,28 @@ extension ViewControllerCalendar: UICollectionViewDataSource, UICollectionViewDe
 
         return calendar.date(from: dateComponents)
     }
+    
+    func updateCalendarController() {
+        // Очистите события в вашем calendarController
+        calendarController.clearEvents()
+
+        // Добавьте задачи из filteredTasks как события в calendarController
+        for task in filteredTasks {
+            let event = Event(
+                title: task.name,
+                startTime: task.date_start,
+                endTime: task.date_finish,
+                description: task.description,
+                color: .blue
+            )
+            calendarController.addEvent(event)
+        }
+
+        // Перезагрузите collectionView
+        collectionView.reloadData()
+    }
+
+
 
 
 

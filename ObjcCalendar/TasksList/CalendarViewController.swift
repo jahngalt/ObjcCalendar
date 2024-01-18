@@ -2,7 +2,9 @@ import UIKit
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CalendarViewLayoutDelegate {
     
-    
+    private var filteredTasks: [TaskModel] = []
+    var tasks: [TaskModel] = []
+
     var calendarController: CalendarController!
     var collectionView: UICollectionView!
 
@@ -61,10 +63,24 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let endTimeInSeconds = endTimeTimestamp - startOfDay.timeIntervalSince1970 // Разница с началом дня
         return endTimeInSeconds
     }
-
-
-
-
-
-   
+    
+    func updateTasks(forDate date: Date) {
+        // Очистите filteredTasks
+        filteredTasks.removeAll()
+        
+        // Добавьте задачи из ViewControllerCalendar, соответствующие выбранной дате, в filteredTasks
+        for task in tasks {
+            // Преобразуйте TimeInterval (task.date_start) в Date
+            let taskStartDate = Date(timeIntervalSince1970: task.date_start)
+            
+            // Проверьте, находится ли taskStartDate в том же дне, что и выбранная дата (date)
+            if Calendar.current.isDate(taskStartDate, inSameDayAs: date) {
+                filteredTasks.append(task)
+            }
+        }
+        
+        
+        // Перезагрузите collectionView
+        collectionView.reloadData()
+    }
 }
