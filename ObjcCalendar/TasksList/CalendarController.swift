@@ -12,7 +12,7 @@ class CalendarController {
     private var events: [Event] = []
     
     init() {
-        Event(id: 1, date_start: 1705575600, date_finish: 1705590000, name: "test", description: "blbalblb")
+        
     }
     
     var numberOfEvents: Int {
