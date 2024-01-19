@@ -7,7 +7,9 @@
 
 import UIKit
 
-
+protocol CalendarDelegate: AnyObject {
+    func didSelectDate(_ date: Date)
+}
 
 class ViewControllerCalendar: UIViewController {
     
@@ -17,6 +19,7 @@ class ViewControllerCalendar: UIViewController {
         return NSRange(location: indexPath.item * 60, length: 60)
     }
     
+    weak var delegate: CalendarDelegate?
     
     var tasks: [TaskModel] = TaskManager().getTasks()
     
@@ -46,15 +49,7 @@ class ViewControllerCalendar: UIViewController {
         calendarController = CalendarController()
         setCellsView()
         setMonthView()
-        
-//       view.backgroundColor = .red
-//        collectionView.backgroundColor = .red
-        
-        calendarView.tasks = tasks
-        print("tasks: ", tasks)
-        print("filtered tasks: ", filteredTasks)
-       
-        
+
     }
     
     
@@ -182,19 +177,37 @@ extension ViewControllerCalendar: UICollectionViewDataSource, UICollectionViewDe
         //print(getDateFromSelectedCell(at: indexPath))
 //        delegate?.didSelectDate(day)
         
-        tasks = TaskManager.shared.filterTasks(forDate: selectedDate)
+        //tasks = TaskManager.shared.filterTasks(forDate: selectedDate)
         // Получите выбранную дату
-            let selectedDate = getDateFromSelectedCell(at: indexPath)
+        guard let selectedDate = getDateFromSelectedCell(at: indexPath) else { return  }
+        print("selected date: \(selectedDate)")
+        userDidSelectDate(selectedDate)
+            
+        selectedIndexPath = indexPath
 
-            // Вызовите updateTasks в CalendarViewController, передав выбранную дату
-            calendarView.updateTasks(forDate: selectedDate!)
-
-            // Пометьте выбранный IndexPath (если это нужно)
-            selectedIndexPath = indexPath
-
-        updateCalendarController()
         collectionView.reloadData()
     }
+    
+//    func getDateFromSelectedCell(at indexPath: IndexPath) -> Date? {
+//        guard indexPath.item < totalSquares.count else { return nil }
+//
+//        let calendar = Calendar.current
+//        let year = calendar.component(.year, from: selectedDate)
+//        let month = calendar.component(.month, from: selectedDate)
+//        let firstDayOfMonth = CalendarHelper().firstOfMonth(date: selectedDate)
+//        let startingSpaces = CalendarHelper().weekDay(date: firstDayOfMonth)
+//
+//        let dayIndex = indexPath.item - startingSpaces + 2 // Исправлено: учет смещения
+//
+//        guard dayIndex > 0 else { return nil } // Проверка на валидность дня
+//
+//        var dateComponents = DateComponents()
+//        dateComponents.year = year
+//        dateComponents.month = month
+//        dateComponents.day = dayIndex
+//
+//        return calendar.date(from: dateComponents)
+//    }
     
     func getDateFromSelectedCell(at indexPath: IndexPath) -> Date? {
         guard indexPath.item < totalSquares.count else { return nil }
@@ -214,33 +227,15 @@ extension ViewControllerCalendar: UICollectionViewDataSource, UICollectionViewDe
         dateComponents.month = month
         dateComponents.day = dayIndex
 
-        return calendar.date(from: dateComponents)
+        guard let date = calendar.date(from: dateComponents) else { return nil }
+
+        // Сбрасываем время до начала дня
+        return calendar.startOfDay(for: date)
     }
+
     
-    func updateCalendarController() {
-        // Очистите события в вашем calendarController
-        calendarController.clearEvents()
-
-        // Добавьте задачи из filteredTasks как события в calendarController
-        for task in filteredTasks {
-            let event = Event(
-                title: task.name,
-                startTime: task.date_start,
-                endTime: task.date_finish,
-                description: task.description,
-                color: .blue
-            )
-            calendarController.addEvent(event)
-        }
-
-        // Перезагрузите collectionView
-        collectionView.reloadData()
-    }
-
-
-
-
-
-
+    func userDidSelectDate(_ selectedDate: Date) {
+           delegate?.didSelectDate(selectedDate)
+       }
 }
 

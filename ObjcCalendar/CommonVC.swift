@@ -9,6 +9,41 @@ import UIKit
 
 
 
-class CommonVC: UIViewController {
+class CommonVC: UIViewController, CalendarDelegate {
+    
+    var vcCalendar = ViewControllerCalendar()
+    var calendarController = CalendarViewController()
+    
+    let eventService = EventService.shared
+    
+    override func viewDidLoad() {
+        vcCalendar.delegate = self
+    }
+    
+    func didSelectDate(_ date: Date) {
+        eventService.fetchEvents(forDate: date) { events in
+            if let events = events {
+                print("recieved events: \(events)")
+                self.calendarController.displayEvents(events)
+            } else {
+                print("error ")
+            }
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "CalendarSegue" {
+               if let calendarVC = segue.destination as? ViewControllerCalendar {
+                   self.vcCalendar = calendarVC
+               }
+           } else if segue.identifier == "EventsListSegue" {
+               if let eventsListVC = segue.destination as? CalendarViewController {
+                   self.calendarController = eventsListVC
+               }
+           }
+       }
+    
+    
     
 }

@@ -10,20 +10,18 @@ import UIKit
 class CalendarController {
     
     private var events: [Event] = []
-    private var filteredTasks: [TaskModel] = []
+    
     init() {
-        // Mock a few events for the day
-            self.events = [
-                Event(title: "Сходить в магазин", startTime: 1705496400, endTime: 1705505400, description: "купить продукты", color: .blue),
-                Event(title: "Учить iOS", startTime: 1705480200, endTime: 1705483800, description: "купить продукты", color: .blue),
-                Event(title: "Учить iOS", startTime: 1705568400, endTime: 1705572000, description: "купить продукты", color: .blue)
-               
-            ]
+        Event(id: 1, date_start: 1705575600, date_finish: 1705590000, name: "test", description: "blbalblb")
     }
-
+    
     var numberOfEvents: Int {
         return self.events.count
     }
+    
+    func setEvents(_ newEvents: [Event]) {
+            self.events = newEvents
+        }
 
     func eventAtIndex(index: Int) -> Event {
         return self.events[index]

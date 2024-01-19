@@ -20,13 +20,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJi-xF-Oxa">
                                 <rect key="frame" x="0.0" y="461" width="393" height="391"/>
                                 <connections>
-                                    <segue destination="UdN-Dx-NKF" kind="embed" id="Kmd-Td-fso"/>
+                                    <segue destination="UdN-Dx-NKF" kind="embed" identifier="EventsListSegue" id="Kmd-Td-fso"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zsw-dj-fE4">
                                 <rect key="frame" x="0.0" y="69" width="393" height="384"/>
                                 <connections>
-                                    <segue destination="k0z-fj-uVY" kind="embed" id="8Oa-sp-J31"/>
+                                    <segue destination="k0z-fj-uVY" kind="embed" identifier="CalendarSegue" id="8Oa-sp-J31"/>
                                 </connections>
                             </containerView>
                         </subviews>

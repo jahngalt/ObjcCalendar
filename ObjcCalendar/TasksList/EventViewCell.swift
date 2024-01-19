@@ -11,11 +11,11 @@ class EventViewCell: UICollectionViewCell {
     var event: Event? {
         didSet {
             guard let event = event else { return }
-            self.layer.borderColor = event.color.cgColor
-            self.backgroundColor = event.color.withAlphaComponent(0.2)
-            self.label.text = event.title
-            self.leftBorderView.backgroundColor = event.color
-            self.label.textColor = event.color
+            self.layer.borderColor = UIColor.randomColor().cgColor
+            self.backgroundColor = UIColor.randomColor().withAlphaComponent(0.2)
+            self.label.text = event.name
+            self.leftBorderView.backgroundColor = UIColor.randomColor()
+            self.label.textColor = UIColor.randomColor()
             self.setNeedsLayout()
         }
     }

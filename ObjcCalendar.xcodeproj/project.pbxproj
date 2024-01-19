@@ -21,8 +21,9 @@
 		274FDA662B57B77A00B62C2D /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FDA652B57B77A00B62C2D /* CalendarHelper.swift */; };
 		274FDA682B57B79100B62C2D /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FDA672B57B79100B62C2D /* CalendarCell.swift */; };
 		274FDA6C2B57B7B300B62C2D /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FDA6B2B57B7B300B62C2D /* TaskModel.swift */; };
-		2798B3D12B58734E00D337E4 /* tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 2798B3D02B58734E00D337E4 /* tasks.json */; };
 		2798B3D32B5874AF00D337E4 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2798B3D22B5874AF00D337E4 /* TaskManager.swift */; };
+		2798B3DA2B59A51700D337E4 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2798B3D92B59A51700D337E4 /* EventService.swift */; };
+		2798B3DF2B59B07000D337E4 /* tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 2798B3DD2B59B06B00D337E4 /* tasks.json */; };
 		27FF5F192B57ED43007ED53E /* ViewControllerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FDA692B57B7A100B62C2D /* ViewControllerCalendar.swift */; };
 		27FF5F1B2B57FBF5007ED53E /* CommonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF5F1A2B57FBF5007ED53E /* CommonVC.swift */; };
 /* End PBXBuildFile section */
@@ -45,8 +46,9 @@
 		274FDA672B57B79100B62C2D /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		274FDA692B57B7A100B62C2D /* ViewControllerCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendar.swift; sourceTree = "<group>"; };
 		274FDA6B2B57B7B300B62C2D /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
-		2798B3D02B58734E00D337E4 /* tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tasks.json; sourceTree = "<group>"; };
 		2798B3D22B5874AF00D337E4 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		2798B3D92B59A51700D337E4 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		2798B3DD2B59B06B00D337E4 /* tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tasks.json; sourceTree = "<group>"; };
 		27FF5F1A2B57FBF5007ED53E /* CommonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,8 +91,9 @@
 				274FDA472B57AF9000B62C2D /* Assets.xcassets */,
 				274FDA492B57AF9000B62C2D /* LaunchScreen.storyboard */,
 				274FDA4C2B57AF9000B62C2D /* Info.plist */,
-				2798B3D02B58734E00D337E4 /* tasks.json */,
 				2798B3D22B5874AF00D337E4 /* TaskManager.swift */,
+				2798B3D92B59A51700D337E4 /* EventService.swift */,
+				2798B3DD2B59B06B00D337E4 /* tasks.json */,
 			);
 			path = ObjcCalendar;
 			sourceTree = "<group>";
@@ -177,7 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2798B3D12B58734E00D337E4 /* tasks.json in Resources */,
+				2798B3DF2B59B07000D337E4 /* tasks.json in Resources */,
 				274FDA4B2B57AF9000B62C2D /* LaunchScreen.storyboard in Resources */,
 				274FDA482B57AF9000B62C2D /* Assets.xcassets in Resources */,
 				274FDA462B57AF8F00B62C2D /* Main.storyboard in Resources */,
@@ -194,6 +197,7 @@
 				274FDA432B57AF8F00B62C2D /* CalendarViewController.swift in Sources */,
 				274FDA532B57AFBA00B62C2D /* CalendarController.swift in Sources */,
 				274FDA3F2B57AF8F00B62C2D /* AppDelegate.swift in Sources */,
+				2798B3DA2B59A51700D337E4 /* EventService.swift in Sources */,
 				274FDA592B57AFFC00B62C2D /* EventViewCell.swift in Sources */,
 				27FF5F192B57ED43007ED53E /* ViewControllerCalendar.swift in Sources */,
 				274FDA6C2B57B7B300B62C2D /* TaskModel.swift in Sources */,

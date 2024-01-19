@@ -2,8 +2,18 @@ import UIKit
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CalendarViewLayoutDelegate {
     
-    private var filteredTasks: [TaskModel] = []
-    var tasks: [TaskModel] = []
+    
+    var events: [Event] = []
+    
+    
+    
+    func displayEvents(_ events: [Event]) {
+        self.events = events
+        self.calendarController.setEvents(events)
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+        }
 
     var calendarController: CalendarController!
     var collectionView: UICollectionView!
@@ -28,7 +38,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
         self.collectionView.register(EventViewCell.self, forCellWithReuseIdentifier: "event")
         self.collectionView.register(HourReusableView.self, forSupplementaryViewOfKind: "hour", withReuseIdentifier: "hour")
-        
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,7 +59,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func calendarViewLayout(_ layout: CalendarViewLayout, startTimeForCellAt indexPath: IndexPath) -> TimeInterval {
         let event = self.calendarController.eventAtIndex(index: indexPath.item)
-        let startTimeTimestamp = event.startTime // Timestamp начала события (в секундах)
+        let startTimeTimestamp = event.date_start // Timestamp начала события (в секундах)
         let startOfDay = Calendar.current.startOfDay(for: Date()) // Начало текущего дня
         let startTimeInSeconds = startTimeTimestamp - startOfDay.timeIntervalSince1970 // Разница с началом дня
         return startTimeInSeconds
@@ -58,29 +67,9 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     func calendarViewLayout(_ layout: CalendarViewLayout, endTimeForCellAt indexPath: IndexPath) -> TimeInterval {
         let event = self.calendarController.eventAtIndex(index: indexPath.item)
-        let endTimeTimestamp = event.endTime // Timestamp окончания события (в секундах)
+        let endTimeTimestamp = event.date_finish // Timestamp окончания события (в секундах)
         let startOfDay = Calendar.current.startOfDay(for: Date()) // Начало текущего дня
         let endTimeInSeconds = endTimeTimestamp - startOfDay.timeIntervalSince1970 // Разница с началом дня
         return endTimeInSeconds
-    }
-    
-    func updateTasks(forDate date: Date) {
-        // Очистите filteredTasks
-        filteredTasks.removeAll()
-        
-        // Добавьте задачи из ViewControllerCalendar, соответствующие выбранной дате, в filteredTasks
-        for task in tasks {
-            // Преобразуйте TimeInterval (task.date_start) в Date
-            let taskStartDate = Date(timeIntervalSince1970: task.date_start)
-            
-            // Проверьте, находится ли taskStartDate в том же дне, что и выбранная дата (date)
-            if Calendar.current.isDate(taskStartDate, inSameDayAs: date) {
-                filteredTasks.append(task)
-            }
-        }
-        
-        
-        // Перезагрузите collectionView
-        collectionView.reloadData()
     }
 }
