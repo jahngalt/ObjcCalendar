@@ -12,7 +12,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         self.calendarController.setEvents(events)
         DispatchQueue.main.async {
             self.collectionView.reloadData()
-        }
+            }
         }
 
     var calendarController: CalendarController!
@@ -38,6 +38,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
         self.collectionView.register(EventViewCell.self, forCellWithReuseIdentifier: "event")
         self.collectionView.register(HourReusableView.self, forSupplementaryViewOfKind: "hour", withReuseIdentifier: "hour")
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,17 +60,16 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func calendarViewLayout(_ layout: CalendarViewLayout, startTimeForCellAt indexPath: IndexPath) -> TimeInterval {
         let event = self.calendarController.eventAtIndex(index: indexPath.item)
-        let startTimeTimestamp = event.date_start // Timestamp начала события (в секундах)
-        let startOfDay = Calendar.current.startOfDay(for: Date()) // Начало текущего дня
-        let startTimeInSeconds = startTimeTimestamp - startOfDay.timeIntervalSince1970 // Разница с началом дня
-        return startTimeInSeconds
+        let eventStartDate = Date(timeIntervalSince1970: event.date_start)
+        let startOfDay = Calendar.current.startOfDay(for: eventStartDate) // Используем день события
+        return event.date_start - startOfDay.timeIntervalSince1970
     }
 
     func calendarViewLayout(_ layout: CalendarViewLayout, endTimeForCellAt indexPath: IndexPath) -> TimeInterval {
         let event = self.calendarController.eventAtIndex(index: indexPath.item)
-        let endTimeTimestamp = event.date_finish // Timestamp окончания события (в секундах)
-        let startOfDay = Calendar.current.startOfDay(for: Date()) // Начало текущего дня
-        let endTimeInSeconds = endTimeTimestamp - startOfDay.timeIntervalSince1970 // Разница с началом дня
-        return endTimeInSeconds
+        let eventEndDate = Date(timeIntervalSince1970: event.date_finish)
+        let startOfDay = Calendar.current.startOfDay(for: eventEndDate) // Используем день события
+        return event.date_finish - startOfDay.timeIntervalSince1970
     }
+
 }

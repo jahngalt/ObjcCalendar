@@ -111,12 +111,6 @@ class ViewControllerCalendar: UIViewController {
         return false
     }
     
-    func loadTasksFromJSON() {
-        TaskManager.shared.loadTaskFromJSON()
-        tasks = TaskManager.shared.getTasks()
-        //print(tasks)
-        collectionView.reloadData()
-    }
 }
 
 extension ViewControllerCalendar: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -172,12 +166,9 @@ extension ViewControllerCalendar: UICollectionViewDataSource, UICollectionViewDe
                     return
                 }
         
-        //print(selectedDate)
-        selectedIndexPath = indexPath
-        //print(getDateFromSelectedCell(at: indexPath))
-//        delegate?.didSelectDate(day)
         
-        //tasks = TaskManager.shared.filterTasks(forDate: selectedDate)
+        selectedIndexPath = indexPath
+        
         // Получите выбранную дату
         guard let selectedDate = getDateFromSelectedCell(at: indexPath) else { return  }
         print("selected date: \(selectedDate)")
@@ -188,26 +179,7 @@ extension ViewControllerCalendar: UICollectionViewDataSource, UICollectionViewDe
         collectionView.reloadData()
     }
     
-//    func getDateFromSelectedCell(at indexPath: IndexPath) -> Date? {
-//        guard indexPath.item < totalSquares.count else { return nil }
-//
-//        let calendar = Calendar.current
-//        let year = calendar.component(.year, from: selectedDate)
-//        let month = calendar.component(.month, from: selectedDate)
-//        let firstDayOfMonth = CalendarHelper().firstOfMonth(date: selectedDate)
-//        let startingSpaces = CalendarHelper().weekDay(date: firstDayOfMonth)
-//
-//        let dayIndex = indexPath.item - startingSpaces + 2 // Исправлено: учет смещения
-//
-//        guard dayIndex > 0 else { return nil } // Проверка на валидность дня
-//
-//        var dateComponents = DateComponents()
-//        dateComponents.year = year
-//        dateComponents.month = month
-//        dateComponents.day = dayIndex
-//
-//        return calendar.date(from: dateComponents)
-//    }
+
     
     func getDateFromSelectedCell(at indexPath: IndexPath) -> Date? {
         guard indexPath.item < totalSquares.count else { return nil }

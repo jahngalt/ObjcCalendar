@@ -11,10 +11,6 @@ class CalendarController {
     
     private var events: [Event] = []
     
-    init() {
-        
-    }
-    
     var numberOfEvents: Int {
         return self.events.count
     }
