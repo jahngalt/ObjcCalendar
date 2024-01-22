@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i7g-ak-wnT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F00-iV-WKe">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJi-xF-Oxa">
-                                <rect key="frame" x="0.0" y="461" width="393" height="391"/>
+                                <rect key="frame" x="0.0" y="453" width="393" height="399"/>
                                 <connections>
                                     <segue destination="UdN-Dx-NKF" kind="embed" identifier="EventsListSegue" id="Kmd-Td-fso"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zsw-dj-fE4">
-                                <rect key="frame" x="0.0" y="69" width="393" height="384"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="350"/>
                                 <connections>
                                     <segue destination="k0z-fj-uVY" kind="embed" identifier="CalendarSegue" id="8Oa-sp-J31"/>
                                 </connections>
@@ -34,28 +34,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Zsw-dj-fE4" secondAttribute="bottom" constant="399" id="21x-H7-uBj"/>
-                            <constraint firstItem="EJi-xF-Oxa" firstAttribute="top" secondItem="Zsw-dj-fE4" secondAttribute="bottom" constant="8" id="Mig-hh-S6e"/>
+                            <constraint firstItem="EJi-xF-Oxa" firstAttribute="top" secondItem="Zsw-dj-fE4" secondAttribute="bottom" id="Mig-hh-S6e"/>
                             <constraint firstItem="Zsw-dj-fE4" firstAttribute="trailing" secondItem="kCe-Nc-oGU" secondAttribute="trailing" id="N1j-st-hq4"/>
                             <constraint firstItem="Zsw-dj-fE4" firstAttribute="leading" secondItem="EJi-xF-Oxa" secondAttribute="leading" id="NsY-gx-697"/>
+                            <constraint firstItem="kCe-Nc-oGU" firstAttribute="top" secondItem="Zsw-dj-fE4" secondAttribute="top" id="Y9l-Sd-EQY"/>
                             <constraint firstItem="Zsw-dj-fE4" firstAttribute="trailing" secondItem="kCe-Nc-oGU" secondAttribute="trailing" id="YZr-Rv-LI7"/>
                             <constraint firstItem="Zsw-dj-fE4" firstAttribute="trailing" secondItem="EJi-xF-Oxa" secondAttribute="trailing" id="aSr-Da-HfR"/>
                             <constraint firstItem="Zsw-dj-fE4" firstAttribute="leading" secondItem="kCe-Nc-oGU" secondAttribute="leading" id="iGd-2H-Laf"/>
                             <constraint firstItem="Zsw-dj-fE4" firstAttribute="leading" secondItem="kCe-Nc-oGU" secondAttribute="leading" id="smM-Qc-YYW"/>
                             <constraint firstAttribute="bottomMargin" secondItem="EJi-xF-Oxa" secondAttribute="bottom" constant="-34" id="vYJ-5R-MHp"/>
-                            <constraint firstItem="Zsw-dj-fE4" firstAttribute="top" secondItem="nX8-Rf-Blw" secondAttribute="top" constant="69" id="wPb-rI-cRT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gZR-xp-reZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Dw-69-uNE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852.67175572519079" y="-358.45070422535213"/>
+            <point key="canvasLocation" x="1779.3893129770991" y="-358.45070422535213"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="Yuk-Kb-513">
             <objects>
                 <viewController id="UdN-Dx-NKF" customClass="CalendarViewController" customModule="ObjcCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FTP-L8-trB">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="391"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="399"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="pg3-Hz-xtA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -70,11 +71,11 @@
             <objects>
                 <viewController id="k0z-fj-uVY" customClass="ViewControllerCalendar" customModule="ObjcCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ke5-pE-gau">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="384"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="WtF-K6-0Gb">
-                                <rect key="frame" x="0.0" y="52" width="393" height="20.333333333333329"/>
+                                <rect key="frame" x="0.0" y="47.666666666666664" width="393" height="20.333333333333336"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пн" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IV-k4-N8L">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="20.333333333333332"/>
@@ -124,30 +125,38 @@
                                     <constraint firstItem="Y3n-bh-6je" firstAttribute="leading" secondItem="gey-eP-ooV" secondAttribute="trailing" id="wk8-1q-uaC"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mwr-tb-MWK">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="34.333333333333336"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mwr-tb-MWK">
+                                <rect key="frame" x="80" y="0.0" width="233" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifX-Iy-qvP">
-                                        <rect key="frame" x="0.0" y="0.0" width="117.66666666666667" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Zhg-A1-xUg"/>
+                                            <constraint firstAttribute="width" constant="30" id="kXb-xb-pTF"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Назад"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.backward.circle.fill" catalog="system"/>
                                         <connections>
                                             <action selector="previousMonth:" destination="k0z-fj-uVY" eventType="touchUpInside" id="TcO-by-fPB"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Янв 2024" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOd-Pl-f67">
-                                        <rect key="frame" x="137.66666666666666" y="6.9999999999999982" width="117.66666666666666" height="20.333333333333329"/>
+                                        <rect key="frame" x="30" y="5" width="173" height="20.333333333333332"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117.66666666666666" id="pBI-n9-jxw"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="pBI-n9-jxw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW5-vd-WnZ">
-                                        <rect key="frame" x="275.33333333333331" y="0.0" width="117.66666666666669" height="34.333333333333336"/>
+                                        <rect key="frame" x="203" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="OVq-w7-fMH"/>
+                                            <constraint firstAttribute="width" constant="30" id="ui6-qn-1eq"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Вперед"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.forward.circle.fill" catalog="system"/>
                                         <connections>
                                             <action selector="nextMonth:" destination="k0z-fj-uVY" eventType="touchUpInside" id="JJt-gt-WBV"/>
                                         </connections>
@@ -155,7 +164,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Itc-I2-TKo">
-                                <rect key="frame" x="0.0" y="82.333333333333343" width="393" height="301.66666666666663"/>
+                                <rect key="frame" x="0.0" y="78" width="393" height="272"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="6wg-tp-8fb">
                                     <size key="itemSize" width="93" height="81"/>
@@ -198,16 +207,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WtF-K6-0Gb" firstAttribute="leading" secondItem="Imb-2o-XY3" secondAttribute="leading" id="0AI-WJ-3hJ"/>
-                            <constraint firstItem="Mwr-tb-MWK" firstAttribute="leading" secondItem="Ke5-pE-gau" secondAttribute="leading" id="3w1-zf-Kpa"/>
-                            <constraint firstAttribute="trailing" secondItem="Mwr-tb-MWK" secondAttribute="trailing" id="6OQ-Mk-WRr"/>
                             <constraint firstAttribute="bottom" secondItem="Itc-I2-TKo" secondAttribute="bottom" id="AHN-07-Npb"/>
                             <constraint firstItem="Mwr-tb-MWK" firstAttribute="top" secondItem="Ke5-pE-gau" secondAttribute="top" id="Ay9-7S-aLU"/>
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="top" secondItem="WtF-K6-0Gb" secondAttribute="bottom" constant="10" id="HHs-zl-T7l"/>
                             <constraint firstItem="WtF-K6-0Gb" firstAttribute="top" secondItem="Mwr-tb-MWK" secondAttribute="bottom" constant="17.666666666666664" id="IDx-1B-Ub0"/>
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="leading" secondItem="Imb-2o-XY3" secondAttribute="leading" id="Q1L-0Z-5wJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Mwr-tb-MWK" secondAttribute="trailing" constant="80" id="Z9W-ES-1Lr"/>
                             <constraint firstAttribute="bottom" secondItem="Itc-I2-TKo" secondAttribute="bottom" id="a5I-gv-oZK"/>
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="trailing" secondItem="Imb-2o-XY3" secondAttribute="trailing" id="aa0-Ap-yzj"/>
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="leading" secondItem="Imb-2o-XY3" secondAttribute="leading" id="ex5-vP-8tX"/>
+                            <constraint firstItem="Mwr-tb-MWK" firstAttribute="leading" secondItem="Ke5-pE-gau" secondAttribute="leading" constant="80" id="gH6-yv-qHd"/>
                             <constraint firstAttribute="bottom" secondItem="Itc-I2-TKo" secondAttribute="bottom" id="mIN-lQ-a2f"/>
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="trailing" secondItem="Imb-2o-XY3" secondAttribute="trailing" id="pj5-HT-07U"/>
                             <constraint firstItem="Imb-2o-XY3" firstAttribute="trailing" secondItem="WtF-K6-0Gb" secondAttribute="trailing" id="tSa-LZ-2Ch"/>
@@ -220,10 +229,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fso-N8-xTb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2003.8167938931297" y="-638.02816901408448"/>
+            <point key="canvasLocation" x="2930.5343511450383" y="-638.02816901408448"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fad-cT-bMs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F00-iV-WKe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lax-vS-2Hr">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="i7g-ak-wnT" kind="relationship" relationship="rootViewController" id="A7h-Mu-G15"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g33-l1-lHq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852.67175572519079" y="-358.45070422535213"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.backward.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="arrowshape.turn.up.forward.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

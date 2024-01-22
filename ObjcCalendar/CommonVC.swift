@@ -16,7 +16,7 @@ class CommonVC: UIViewController, CalendarDelegate {
     
     let eventService = EventService.shared
     
-    let addTaskButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentNewController))
+    let addTaskButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: CommonVC.self, action: #selector(presentNewController))
     
     @objc func presentNewController() {
         
@@ -26,6 +26,7 @@ class CommonVC: UIViewController, CalendarDelegate {
         vcCalendar.delegate = self
         
         navigationItem.rightBarButtonItem = addTaskButton
+        navigationItem.title = "Calendar App"
     }
     
     func didSelectDate(_ date: Date) {
