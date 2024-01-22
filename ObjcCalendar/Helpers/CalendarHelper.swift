@@ -12,7 +12,7 @@ class CalendarHelper {
 
     init() {
         var calendar = Calendar.current
-        calendar.firstWeekday = 2 // Понедельник
+        calendar.firstWeekday = 2
         self.calendar = calendar
     }
 

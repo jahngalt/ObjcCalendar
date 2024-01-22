@@ -8,7 +8,6 @@
 import UIKit
 
 class CommonVC: UIViewController, CalendarDelegate {
-
     var vcCalendar = ViewControllerCalendar()
     var calendarController = TimeLineViewController()
 
@@ -17,10 +16,9 @@ class CommonVC: UIViewController, CalendarDelegate {
     override func viewDidLoad() {
         vcCalendar.delegate = self
 
-        let addTaskButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentAddTaskViewController))
+        let addTaskButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentAddTaskViewController))
         navigationItem.rightBarButtonItem = addTaskButton
         navigationItem.title = "Calendar App"
-
     }
 
     @objc func presentAddTaskViewController() {
@@ -50,5 +48,4 @@ class CommonVC: UIViewController, CalendarDelegate {
                }
            }
        }
-
 }

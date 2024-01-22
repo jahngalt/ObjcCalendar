@@ -8,7 +8,6 @@
 import UIKit
 
 class EventDataProvider {
-
     private var events: [EventModel] = []
 
     var numberOfEvents: Int {

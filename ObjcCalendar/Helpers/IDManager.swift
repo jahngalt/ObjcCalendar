@@ -13,7 +13,6 @@ class IDManager {
     private var currentID: Int = 0
 
     private init() {
-        // Загрузка последнего сохраненного ID
         currentID = UserDefaults.standard.integer(forKey: "currentID")
     }
 

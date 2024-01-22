@@ -13,7 +13,6 @@ class EventService {
         let targetDateStart = calendar.startOfDay(for: date)
         let targetDateEnd = calendar.date(byAdding: .day, value: 1, to: targetDateStart)!
 
-        // Фильтруем события по дате
         let events = Array(realm.objects(EventModel.self).filter("date_start >= %@ AND date_start < %@", targetDateStart, targetDateEnd))
         completion(events)
     }

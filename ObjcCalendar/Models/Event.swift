@@ -22,7 +22,6 @@ struct Event: Codable {
         try container.encode(date_finish, forKey: .date_finish)
         try container.encode(name, forKey: .name)
         try container.encode(description, forKey: .description)
-
     }
 }
 

@@ -8,8 +8,6 @@
 import UIKit
 
 class AddTaskView: UIView {
-
-    // MARK: - Private Views
      var taskNameLabel: UILabel = createLabel(withText: "Name:")
      var taskDescriptionLabel: UILabel = createLabel(withText: "Description:")
      var startLabel: UILabel = createLabel(withText: "Start date:")
@@ -23,7 +21,6 @@ class AddTaskView: UIView {
 
      var addTaskButton: UIButton = createButton(withTitle: "Add task")
 
-    // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -33,9 +30,7 @@ class AddTaskView: UIView {
         setUp()
     }
 
-    // MARK: - Setup & Constraints
     private func setUp() {
-
         [taskNameLabel, taskDescriptionLabel, startLabel, finishLabel,
          nameTextField, descriptionTextField, startDatePicker, finishDatePicker, addTaskButton].forEach {
             addSubview($0)

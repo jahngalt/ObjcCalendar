@@ -61,22 +61,17 @@ class EventViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        // Левая полоса
         self.leftBorderView.frame = CGRect(x: 0, y: 0, width: 4, height: self.bounds.size.height)
 
-        // Размер и позиционирование заголовка
         let labelX: CGFloat = 8
         let labelY: CGFloat = 8
-        let labelWidth = self.bounds.size.width - labelX - 10.0 // Отступ справа
+        let labelWidth = self.bounds.size.width - labelX - 10.0
         let labelSize = self.label.sizeThatFits(CGSize(width: labelWidth, height: CGFloat.greatestFiniteMagnitude))
         self.label.frame = CGRect(x: labelX, y: labelY, width: labelWidth, height: labelSize.height)
-
-        // Размер и позиционирование описания
         let descriptionX = labelX
-        let descriptionY = labelY + labelSize.height + 4 // Отступ между label и description
+        let descriptionY = labelY + labelSize.height + 4
         let descriptionWidth = labelWidth
         let descriptionSize = self.desctiption.sizeThatFits(CGSize(width: descriptionWidth, height: CGFloat.greatestFiniteMagnitude))
         self.desctiption.frame = CGRect(x: descriptionX, y: descriptionY, width: descriptionWidth, height: descriptionSize.height)
     }
-
 }

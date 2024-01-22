@@ -38,7 +38,7 @@ class CalendarViewLayout: UICollectionViewLayout {
                 let cellIndexPath = IndexPath(item: j, section: i)
                 let startTime = calendarViewLayoutDelegate.calendarViewLayout(self, startTimeForCellAt: cellIndexPath)
                 let endTime = calendarViewLayoutDelegate.calendarViewLayout(self, endTimeForCellAt: cellIndexPath)
-                let posY = CGFloat(startTime) / 60.0  + CalendarViewLayoutTimeLinePadding + 24
+                let posY = CGFloat(startTime) / 60.0 + CalendarViewLayoutTimeLinePadding + 24
                 let height = CGFloat(endTime - startTime) / 60.0
                 let attributes = UICollectionViewLayoutAttributes(forCellWith: cellIndexPath)
                 attributes.frame = CGRect(x: CalendarViewLayoutLeftPadding, y: posY, width: collectionView.bounds.size.width - CalendarViewLayoutLeftPadding - CalendarViewLayoutRightPadding, height: height)
