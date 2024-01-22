@@ -57,13 +57,6 @@ class EventViewCell: UICollectionViewCell {
         self.addSubview(self.label)
         self.addSubview(self.desctiption)
     }
-
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        self.leftBorderView.frame = CGRect(x: 0, y: 0, width: 4, height: self.bounds.size.height)
-//        let labelSize = self.label.sizeThatFits(CGSize(width: self.bounds.size.width - 10.0, height: CGFloat.greatestFiniteMagnitude))
-//        self.label.frame = CGRect(x: 8, y: 8, width: labelSize.width, height: labelSize.height)
-//    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

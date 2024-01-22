@@ -13,7 +13,7 @@ let CalendarViewLayoutRightPadding: CGFloat = 10.0
 let CalendarViewLayoutTimeLinePadding: CGFloat = 6.0
 
 
-//протокол делегата
+
 protocol CalendarViewLayoutDelegate: AnyObject {
     func calendarViewLayout(_ layout: CalendarViewLayout, startTimeForCellAt indexPath: IndexPath) -> TimeInterval
     func calendarViewLayout(_ layout: CalendarViewLayout, endTimeForCellAt indexPath: IndexPath) -> TimeInterval
@@ -23,7 +23,7 @@ protocol CalendarViewLayoutDelegate: AnyObject {
 
 class CalendarViewLayout: UICollectionViewLayout {
     
-    //создаем атрибуты
+    
     private var cellAttributes = [UICollectionViewLayoutAttributes]()
     private var hourAttributes = [UICollectionViewLayoutAttributes]()
 
@@ -40,7 +40,7 @@ class CalendarViewLayout: UICollectionViewLayout {
             return
         }
 
-        // Compute every events layoutAttributes
+        
         for i in 0..<collectionView.numberOfSections {
             for j in 0..<collectionView.numberOfItems(inSection: i) {
                 let cellIndexPath = IndexPath(item: j, section: i)

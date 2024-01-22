@@ -36,14 +36,14 @@ class AddTaskView: UIView {
 
     // MARK: - Setup & Constraints
     private func setUp() {
-        // Add views
+        
         [taskNameLabel, taskDescriptionLabel, startLabel, finishLabel,
          nameTextField, descriptionTextField, startDatePicker, finishDatePicker, addTaskButton].forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        // Activate constraints
+        
         NSLayoutConstraint.activate(makeConstraints())
     }
     
