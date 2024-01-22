@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F00-iV-WKe">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -126,37 +127,37 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mwr-tb-MWK">
-                                <rect key="frame" x="80" y="0.0" width="233" height="30"/>
+                                <rect key="frame" x="50" y="0.0" width="293" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifX-Iy-qvP">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Zhg-A1-xUg"/>
-                                            <constraint firstAttribute="width" constant="30" id="kXb-xb-pTF"/>
+                                            <constraint firstAttribute="width" constant="50" id="kXb-xb-pTF"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.backward.circle.fill" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="⬅️"/>
                                         <connections>
                                             <action selector="previousMonth:" destination="k0z-fj-uVY" eventType="touchUpInside" id="TcO-by-fPB"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Янв 2024" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOd-Pl-f67">
-                                        <rect key="frame" x="30" y="5" width="173" height="20.333333333333332"/>
+                                        <rect key="frame" x="50" y="5" width="193" height="20.333333333333332"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="pBI-n9-jxw"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="pBI-n9-jxw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW5-vd-WnZ">
-                                        <rect key="frame" x="203" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="243" y="0.0" width="50" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="OVq-w7-fMH"/>
-                                            <constraint firstAttribute="width" constant="30" id="ui6-qn-1eq"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="ui6-qn-1eq"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.forward.circle.fill" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="➡️"/>
                                         <connections>
                                             <action selector="nextMonth:" destination="k0z-fj-uVY" eventType="touchUpInside" id="JJt-gt-WBV"/>
                                         </connections>
@@ -212,11 +213,11 @@
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="top" secondItem="WtF-K6-0Gb" secondAttribute="bottom" constant="10" id="HHs-zl-T7l"/>
                             <constraint firstItem="WtF-K6-0Gb" firstAttribute="top" secondItem="Mwr-tb-MWK" secondAttribute="bottom" constant="17.666666666666664" id="IDx-1B-Ub0"/>
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="leading" secondItem="Imb-2o-XY3" secondAttribute="leading" id="Q1L-0Z-5wJ"/>
-                            <constraint firstAttribute="trailing" secondItem="Mwr-tb-MWK" secondAttribute="trailing" constant="80" id="Z9W-ES-1Lr"/>
+                            <constraint firstAttribute="trailing" secondItem="Mwr-tb-MWK" secondAttribute="trailing" constant="50" id="Z9W-ES-1Lr"/>
                             <constraint firstAttribute="bottom" secondItem="Itc-I2-TKo" secondAttribute="bottom" id="a5I-gv-oZK"/>
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="trailing" secondItem="Imb-2o-XY3" secondAttribute="trailing" id="aa0-Ap-yzj"/>
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="leading" secondItem="Imb-2o-XY3" secondAttribute="leading" id="ex5-vP-8tX"/>
-                            <constraint firstItem="Mwr-tb-MWK" firstAttribute="leading" secondItem="Ke5-pE-gau" secondAttribute="leading" constant="80" id="gH6-yv-qHd"/>
+                            <constraint firstItem="Mwr-tb-MWK" firstAttribute="leading" secondItem="Ke5-pE-gau" secondAttribute="leading" constant="50" id="gH6-yv-qHd"/>
                             <constraint firstAttribute="bottom" secondItem="Itc-I2-TKo" secondAttribute="bottom" id="mIN-lQ-a2f"/>
                             <constraint firstItem="Itc-I2-TKo" firstAttribute="trailing" secondItem="Imb-2o-XY3" secondAttribute="trailing" id="pj5-HT-07U"/>
                             <constraint firstItem="Imb-2o-XY3" firstAttribute="trailing" secondItem="WtF-K6-0Gb" secondAttribute="trailing" id="tSa-LZ-2Ch"/>
@@ -251,8 +252,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.backward.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="arrowshape.turn.up.forward.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		274FDA3F2B57AF8F00B62C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FDA3E2B57AF8F00B62C2D /* AppDelegate.swift */; };
-		274FDA412B57AF8F00B62C2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FDA402B57AF8F00B62C2D /* SceneDelegate.swift */; };
 		274FDA462B57AF8F00B62C2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274FDA442B57AF8F00B62C2D /* Main.storyboard */; };
 		274FDA482B57AF9000B62C2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 274FDA472B57AF9000B62C2D /* Assets.xcassets */; };
 		274FDA4B2B57AF9000B62C2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274FDA492B57AF9000B62C2D /* LaunchScreen.storyboard */; };
@@ -32,7 +31,6 @@
 /* Begin PBXFileReference section */
 		274FDA3B2B57AF8F00B62C2D /* ObjcCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		274FDA3E2B57AF8F00B62C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		274FDA402B57AF8F00B62C2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		274FDA452B57AF8F00B62C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		274FDA472B57AF9000B62C2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		274FDA4A2B57AF9000B62C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 				274FDA642B57B6C800B62C2D /* TasksList */,
 				274FDA632B57B6B500B62C2D /* Calendar */,
 				274FDA3E2B57AF8F00B62C2D /* AppDelegate.swift */,
-				274FDA402B57AF8F00B62C2D /* SceneDelegate.swift */,
 				274FDA442B57AF8F00B62C2D /* Main.storyboard */,
 				274FDA472B57AF9000B62C2D /* Assets.xcassets */,
 				274FDA492B57AF9000B62C2D /* LaunchScreen.storyboard */,
@@ -236,7 +233,6 @@
 				274FDA592B57AFFC00B62C2D /* EventViewCell.swift in Sources */,
 				27FC21452B5E759500BE8F2D /* CalendarViewController.swift in Sources */,
 				274FDA6C2B57B7B300B62C2D /* TaskModel.swift in Sources */,
-				274FDA412B57AF8F00B62C2D /* SceneDelegate.swift in Sources */,
 				274FDA682B57B79100B62C2D /* CalendarCell.swift in Sources */,
 				27FF5F1B2B57FBF5007ED53E /* CommonVC.swift in Sources */,
 				274FDA662B57B77A00B62C2D /* CalendarHelper.swift in Sources */,
@@ -404,7 +400,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,7 +429,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
