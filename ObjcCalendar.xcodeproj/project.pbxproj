@@ -25,6 +25,7 @@
 		27FC21442B5E759500BE8F2D /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC21412B5E759500BE8F2D /* AddTaskViewController.swift */; };
 		27FC21452B5E759500BE8F2D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC21422B5E759500BE8F2D /* CalendarViewController.swift */; };
 		27FC21462B5E759500BE8F2D /* ViewControllerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC21432B5E759500BE8F2D /* ViewControllerCalendar.swift */; };
+		27FC214A2B5E7D1000BE8F2D /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC21492B5E7D1000BE8F2D /* AddTaskView.swift */; };
 		27FF5F1B2B57FBF5007ED53E /* CommonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF5F1A2B57FBF5007ED53E /* CommonVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		27FC21412B5E759500BE8F2D /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		27FC21422B5E759500BE8F2D /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		27FC21432B5E759500BE8F2D /* ViewControllerCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendar.swift; sourceTree = "<group>"; };
+		27FC21492B5E7D1000BE8F2D /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		27FF5F1A2B57FBF5007ED53E /* CommonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +91,6 @@
 				274FDA642B57B6C800B62C2D /* TasksList */,
 				274FDA632B57B6B500B62C2D /* Calendar */,
 				274FDA3E2B57AF8F00B62C2D /* AppDelegate.swift */,
-				27FF5F1A2B57FBF5007ED53E /* CommonVC.swift */,
 				274FDA402B57AF8F00B62C2D /* SceneDelegate.swift */,
 				274FDA442B57AF8F00B62C2D /* Main.storyboard */,
 				274FDA472B57AF9000B62C2D /* Assets.xcassets */,
@@ -131,6 +132,7 @@
 				27FC21412B5E759500BE8F2D /* AddTaskViewController.swift */,
 				27FC21422B5E759500BE8F2D /* CalendarViewController.swift */,
 				27FC21432B5E759500BE8F2D /* ViewControllerCalendar.swift */,
+				27FF5F1A2B57FBF5007ED53E /* CommonVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -142,6 +144,7 @@
 				274FDA582B57AFFC00B62C2D /* EventViewCell.swift */,
 				274FDA562B57AFEC00B62C2D /* CalendarViewLayout.swift */,
 				274FDA5A2B57B01000B62C2D /* HourReusableView.swift */,
+				27FC21492B5E7D1000BE8F2D /* AddTaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				274FDA532B57AFBA00B62C2D /* CalendarController.swift in Sources */,
 				274FDA3F2B57AF8F00B62C2D /* AppDelegate.swift in Sources */,
 				2798B3DA2B59A51700D337E4 /* EventService.swift in Sources */,
+				27FC214A2B5E7D1000BE8F2D /* AddTaskView.swift in Sources */,
 				274FDA592B57AFFC00B62C2D /* EventViewCell.swift in Sources */,
 				27FC21452B5E759500BE8F2D /* CalendarViewController.swift in Sources */,
 				274FDA6C2B57B7B300B62C2D /* TaskModel.swift in Sources */,
@@ -400,6 +404,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,6 +433,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
