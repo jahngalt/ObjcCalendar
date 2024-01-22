@@ -6,24 +6,13 @@ struct Event: Codable {
     var date_finish: Double
     var name: String
     var description: String
-    
 
-    init(id: Int,  date_start: Double, date_finish: Double, name: String,  description: String) {
-        self.id = id
-        self.date_start = date_start
-        self.date_finish = date_finish
-        self.name = name
-        self.description = description
-        
-    }
-    
     enum CodingKeys: String, CodingKey {
         case id
         case date_start
         case date_finish
-        case name 
+        case name
         case description
-        
     }
 
     func encode(to encoder: Encoder) throws {
@@ -33,10 +22,9 @@ struct Event: Codable {
         try container.encode(date_finish, forKey: .date_finish)
         try container.encode(name, forKey: .name)
         try container.encode(description, forKey: .description)
-        
+
     }
 }
-
 
 extension UIColor {
     static func randomColor() -> UIColor {

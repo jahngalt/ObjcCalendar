@@ -8,13 +8,13 @@
 import UIKit
 
 class EventViewCell: UICollectionViewCell {
-    var event: Event? {
+    var event: EventModel? {
         didSet {
             guard let event = event else { return }
             self.layer.borderColor = UIColor.randomColor().cgColor
             self.backgroundColor = UIColor.randomColor().withAlphaComponent(0.4)
             self.label.text = event.name
-            self.desctiption.text = event.description
+            self.desctiption.text = event.descriptionText
             self.leftBorderView.backgroundColor = UIColor.randomColor()
             self.label.textColor = UIColor.black
             self.setNeedsLayout()
@@ -23,7 +23,7 @@ class EventViewCell: UICollectionViewCell {
 
     private let leftBorderView: UIView = {
         let view = UIView()
-        
+
         return view
     }()
 
@@ -34,7 +34,7 @@ class EventViewCell: UICollectionViewCell {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
-    
+
     private let desctiption: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
@@ -57,10 +57,10 @@ class EventViewCell: UICollectionViewCell {
         self.addSubview(self.label)
         self.addSubview(self.desctiption)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         // Левая полоса
         self.leftBorderView.frame = CGRect(x: 0, y: 0, width: 4, height: self.bounds.size.height)
 

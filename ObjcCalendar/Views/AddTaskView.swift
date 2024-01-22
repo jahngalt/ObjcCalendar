@@ -5,30 +5,29 @@
 //  Created by mike on 17.01.24.
 //
 
-
 import UIKit
 
 class AddTaskView: UIView {
-    
+
     // MARK: - Private Views
-    private var taskNameLabel: UILabel = createLabel(withText: "Name:")
-    private var taskDescriptionLabel: UILabel = createLabel(withText: "Description:")
-    private var startLabel: UILabel = createLabel(withText: "Start date:")
-    private var finishLabel: UILabel = createLabel(withText: "Finish date:")
-    
-    private var nameTextField: UITextField = createTextField(withPlaceholder: "Task name")
-    private var descriptionTextField: UITextField = createTextField(withPlaceholder: "Description")
-    
-    private var startDatePicker: UIDatePicker = createDatePicker()
-    private var finishDatePicker: UIDatePicker = createDatePicker()
-    
-    private var addTaskButton: UIButton = createButton(withTitle: "Add task")
+     var taskNameLabel: UILabel = createLabel(withText: "Name:")
+     var taskDescriptionLabel: UILabel = createLabel(withText: "Description:")
+     var startLabel: UILabel = createLabel(withText: "Start date:")
+     var finishLabel: UILabel = createLabel(withText: "Finish date:")
+
+     var nameTextField: UITextField = createTextField(withPlaceholder: "Task name")
+     var descriptionTextField: UITextField = createTextField(withPlaceholder: "Description")
+
+     var startDatePicker: UIDatePicker = createDatePicker()
+     var finishDatePicker: UIDatePicker = createDatePicker()
+
+     var addTaskButton: UIButton = createButton(withTitle: "Add task")
 
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
@@ -36,51 +35,49 @@ class AddTaskView: UIView {
 
     // MARK: - Setup & Constraints
     private func setUp() {
-        
+
         [taskNameLabel, taskDescriptionLabel, startLabel, finishLabel,
          nameTextField, descriptionTextField, startDatePicker, finishDatePicker, addTaskButton].forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        
-        
+
         NSLayoutConstraint.activate(makeConstraints())
     }
-    
+
     private func makeConstraints() -> [NSLayoutConstraint] {
         let margin = layoutMarginsGuide
         return   [
             taskNameLabel.topAnchor.constraint(equalTo: margin.topAnchor),
             taskNameLabel.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
-            
+
             nameTextField.topAnchor.constraint(equalTo: taskNameLabel.bottomAnchor, constant: 10),
             nameTextField.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.1),
             nameTextField.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
             nameTextField.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
-            
+
             taskDescriptionLabel.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10),
             taskDescriptionLabel.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
-            
+
             descriptionTextField.topAnchor.constraint(equalTo: taskDescriptionLabel.bottomAnchor, constant: 10),
             descriptionTextField.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
             descriptionTextField.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.1),
             descriptionTextField.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
-            
 
             startLabel.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 10),
             startLabel.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
-            
+
             startDatePicker.topAnchor.constraint(equalTo: startLabel.bottomAnchor, constant: 10),
             startDatePicker.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.1),
             startDatePicker.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
-            
+
             finishLabel.topAnchor.constraint(equalTo: startDatePicker.bottomAnchor, constant: 10),
             finishLabel.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
-            
+
             finishDatePicker.topAnchor.constraint(equalTo: finishLabel.bottomAnchor, constant: 10),
             finishDatePicker.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.1),
             finishDatePicker.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
-            
+
             addTaskButton.topAnchor.constraint(greaterThanOrEqualTo: finishDatePicker.bottomAnchor, constant: 20),
             addTaskButton.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
             addTaskButton.trailingAnchor.constraint(equalTo: margin.trailingAnchor),

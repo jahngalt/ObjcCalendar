@@ -40,23 +40,20 @@ class HourReusableView: UICollectionReusableView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         let timeLabelWidth: CGFloat = 30
         let timeLabelX: CGFloat = 2
-        
-        
+
         let timeLineX = timeLabelX + timeLabelWidth + 5
-        
-        let timeLineY = bounds.size.height / 2 - 0.25 
+
+        let timeLineY = bounds.size.height / 2 - 0.25
         let timeLineWidth = bounds.size.width - timeLineX - 10
         let timeLineHeight: CGFloat = 0.5
-        
+
         timeLabel.frame = CGRect(x: timeLabelX, y: 0, width: timeLabelWidth, height: bounds.size.height)
         timeLineView.frame = CGRect(x: timeLineX, y: timeLineY, width: timeLineWidth, height: timeLineHeight)
         timeLineView.backgroundColor = .purple
     }
-
-
 
     func setTime(time: String) {
         timeLabel.text = time

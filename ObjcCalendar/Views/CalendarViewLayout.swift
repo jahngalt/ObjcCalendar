@@ -7,23 +7,17 @@
 
 import UIKit
 
-let CalendarViewLayoutHourViewHeight: CGFloat = 60.0
-let CalendarViewLayoutLeftPadding: CGFloat = 40.0
-let CalendarViewLayoutRightPadding: CGFloat = 10.0
-let CalendarViewLayoutTimeLinePadding: CGFloat = 6.0
-
-
-
 protocol CalendarViewLayoutDelegate: AnyObject {
     func calendarViewLayout(_ layout: CalendarViewLayout, startTimeForCellAt indexPath: IndexPath) -> TimeInterval
     func calendarViewLayout(_ layout: CalendarViewLayout, endTimeForCellAt indexPath: IndexPath) -> TimeInterval
 }
 
-
-
 class CalendarViewLayout: UICollectionViewLayout {
-    
-    
+    let CalendarViewLayoutHourViewHeight: CGFloat = 60.0
+    let CalendarViewLayoutLeftPadding: CGFloat = 40.0
+    let CalendarViewLayoutRightPadding: CGFloat = 10.0
+    let CalendarViewLayoutTimeLinePadding: CGFloat = 6.0
+
     private var cellAttributes = [UICollectionViewLayoutAttributes]()
     private var hourAttributes = [UICollectionViewLayoutAttributes]()
 
@@ -34,13 +28,11 @@ class CalendarViewLayout: UICollectionViewLayout {
     override func prepare() {
         self.cellAttributes.removeAll()
         self.hourAttributes.removeAll()
-
         guard let collectionView = self.collectionView,
               let calendarViewLayoutDelegate = collectionView.delegate as? CalendarViewLayoutDelegate else {
             return
         }
 
-        
         for i in 0..<collectionView.numberOfSections {
             for j in 0..<collectionView.numberOfItems(inSection: i) {
                 let cellIndexPath = IndexPath(item: j, section: i)
@@ -48,15 +40,12 @@ class CalendarViewLayout: UICollectionViewLayout {
                 let endTime = calendarViewLayoutDelegate.calendarViewLayout(self, endTimeForCellAt: cellIndexPath)
                 let posY = CGFloat(startTime) / 60.0  + CalendarViewLayoutTimeLinePadding + 24
                 let height = CGFloat(endTime - startTime) / 60.0
-               
-
                 let attributes = UICollectionViewLayoutAttributes(forCellWith: cellIndexPath)
                 attributes.frame = CGRect(x: CalendarViewLayoutLeftPadding, y: posY, width: collectionView.bounds.size.width - CalendarViewLayoutLeftPadding - CalendarViewLayoutRightPadding, height: height)
                 self.cellAttributes.append(attributes)
             }
         }
 
-        // Compute every 'hour block' layoutAttributes
         for i in 0..<24 {
             let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: "hour", with: IndexPath(item: i, section: 0))
             attributes.frame = CGRect(x: 0, y: CGFloat(i) * CalendarViewLayoutHourViewHeight, width: collectionView.bounds.size.width, height: CalendarViewLayoutHourViewHeight + (i == 23 ? CalendarViewLayoutTimeLinePadding : 0))
